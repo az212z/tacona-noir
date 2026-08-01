@@ -1,0 +1,828 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>تاكونا | TACONA · تاكوس تُشعل الليل · ظهرة لبن، الرياض</title>
+<meta name="description" content="تاكونا مطبخ مكسيكي أمريكي في ظهرة لبن بالرياض. تاكو، بوريتو، وبولات محضّرة طازجة وبسرعة. تقييم 4.8 على خرائط جوجل. اطلب عبر واتساب أو هنقرستيشن.">
+<meta name="theme-color" content="#08080a">
+<meta property="og:title" content="تاكونا | TACONA · تاكوس تُشعل الليل">
+<meta property="og:description" content="مطبخ مكسيكي أمريكي في ظهرة لبن، الرياض. أسرررع شي.">
+<meta property="og:image" content="assets/img/p07.jpg">
+<meta property="og:type" content="restaurant">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;900&family=Tajawal:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#08080a; --ink2:#0d0d10; --char:#141419; --card:#15151b; --card2:#1b1b22;
+  --line:rgba(255,255,255,.09); --line2:rgba(255,255,255,.14);
+  --paper:#f4efe4; --muted:#a29c92; --muted2:#6f6a62;
+  --ember:#ff5a1f; --ember2:#ff8748; --lime:#c9f24a; --lime2:#a7d92e;
+  --maxw:1240px;
+  --pad: clamp(20px, 5vw, 72px);
+  --r: 18px;
+  --ease: cubic-bezier(.22,1,.36,1);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+html,body{margin:0;padding:0;background:var(--ink);color:var(--paper);overflow-x:hidden}
+body{font-family:'Tajawal','Segoe UI',Tahoma,sans-serif;line-height:1.85;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;font-size:17px}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.en{font-family:'Space Grotesk',ui-sans-serif,system-ui,sans-serif;font-feature-settings:"tnum" 1;direction:ltr;unicode-bidi:isolate;letter-spacing:.02em}
+h1,h2,h3{font-family:'Cairo','Tajawal',sans-serif;font-weight:900;line-height:1.28;margin:0}
+p{margin:0}
+.wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--pad)}
+.eyebrow{font-family:'Space Grotesk',sans-serif;direction:ltr;text-transform:uppercase;letter-spacing:.34em;font-size:12px;font-weight:600;color:var(--lime);display:inline-flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:26px;height:2px;background:var(--ember);display:inline-block}
+.sec-h{font-size:clamp(30px,5.2vw,58px);line-height:1.24;letter-spacing:normal}
+.muted{color:var(--muted)}
+.nowrap{white-space:nowrap}
+
+/* ---------- grain + progress ---------- */
+.grain{position:fixed;inset:0;z-index:60;pointer-events:none;opacity:.05;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>")}
+#prog{position:fixed;inset-block-start:0;inset-inline:0;height:3px;z-index:70;background:linear-gradient(90deg,var(--ember),var(--lime));transform:scaleX(0);transform-origin:right;will-change:transform}
+
+/* ---------- preloader ---------- */
+#pre{position:fixed;inset:0;z-index:100;background:var(--ink);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:18px}
+#pre .plogo{font-family:'Space Grotesk',sans-serif;font-weight:700;letter-spacing:.5em;font-size:clamp(30px,7vw,64px);color:var(--paper);direction:ltr;overflow:hidden;display:flex}
+#pre .plogo span{display:inline-block;transform:translateY(110%);opacity:0}
+#pre .pbar{width:min(240px,60vw);height:2px;background:var(--line);position:relative;overflow:hidden;border-radius:2px}
+#pre .pbar i{position:absolute;inset-block:0;inset-inline-start:0;width:0;background:linear-gradient(90deg,var(--ember),var(--lime))}
+#pre .ptag{font-size:13px;color:var(--muted);letter-spacing:.1em}
+body.loaded #pre{opacity:0;visibility:hidden;transition:opacity .7s var(--ease),visibility .7s}
+
+/* ---------- nav ---------- */
+.nav{position:fixed;inset-block-start:0;inset-inline:0;z-index:55;display:flex;align-items:center;justify-content:space-between;
+  padding:16px var(--pad);transition:background .4s var(--ease),backdrop-filter .4s,padding .4s,border-color .4s;border-bottom:1px solid transparent}
+.nav.scrolled{background:rgba(8,8,10,.72);backdrop-filter:blur(16px) saturate(1.2);border-bottom:1px solid var(--line);padding-block:11px}
+.brand{display:flex;align-items:center;gap:12px;font-weight:900;font-family:'Cairo',sans-serif;font-size:22px;letter-spacing:normal}
+.brand .dot{width:11px;height:11px;border-radius:50%;background:var(--ember);box-shadow:0 0 16px var(--ember);flex:0 0 auto}
+.brand .lat{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:15px;color:var(--muted);letter-spacing:.28em;direction:ltr}
+.navlinks{display:flex;align-items:center;gap:34px}
+.navlinks a{font-size:15.5px;font-weight:500;color:#e9e4da;position:relative;padding-block:4px}
+.navlinks a::after{content:"";position:absolute;inset-block-end:-2px;inset-inline:0;height:2px;background:var(--lime);transform:scaleX(0);transform-origin:right;transition:transform .35s var(--ease)}
+.navlinks a:hover::after{transform:scaleX(1)}
+.nav-cta{display:inline-flex;align-items:center;gap:9px;background:var(--ember);color:#140a04;font-weight:700;padding:11px 20px;border-radius:100px;font-size:15px;box-shadow:0 8px 26px rgba(255,90,31,.32)}
+.burger{display:none;flex-direction:column;gap:5px;width:44px;height:44px;align-items:center;justify-content:center;background:rgba(255,255,255,.06);border:1px solid var(--line);border-radius:12px;cursor:pointer}
+.burger span{width:20px;height:2px;background:var(--paper);border-radius:2px;transition:.3s var(--ease)}
+
+/* physical mobile menu (off-screen closed) */
+.mob{position:fixed;inset-block:0;right:0;left:auto;z-index:80;width:min(84vw,360px);
+  background:linear-gradient(180deg,#101014,#0a0a0d);border-left:1px solid var(--line2);
+  transform:translateX(106%);transition:transform .5s var(--ease);padding:96px 34px 40px;display:flex;flex-direction:column;gap:6px;box-shadow:-30px 0 80px rgba(0,0,0,.6)}
+.mob.open{transform:translateX(0)}
+.mob a{font-family:'Cairo',sans-serif;font-weight:700;font-size:24px;padding-block:14px;border-bottom:1px solid var(--line);color:#efe9df}
+.mob a .num{font-family:'Space Grotesk',sans-serif;font-size:12px;color:var(--ember);margin-inline-end:12px;direction:ltr;display:inline-block}
+.mob .m-cta{margin-top:22px;background:var(--ember);color:#140a04;text-align:center;border-radius:100px;padding:15px;font-weight:800;border-bottom:none}
+.mob .m-info{margin-top:auto;color:var(--muted);font-size:13px;line-height:1.9}
+.scrim{position:fixed;inset:0;z-index:75;background:rgba(4,4,6,.55);backdrop-filter:blur(3px);opacity:0;visibility:hidden;transition:.4s}
+.scrim.show{opacity:1;visibility:visible}
+
+/* ---------- hero ---------- */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden;background:var(--ink)}
+#heroGl,#heroImg{position:absolute;inset:0;width:100%;height:100%}
+#heroImg{object-fit:cover;object-position:center 42%}
+.hero.gl-on #heroImg{opacity:0}
+.hero::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;
+  background:
+   radial-gradient(120% 90% at 70% 8%, transparent 30%, rgba(8,8,10,.55) 78%, var(--ink) 100%),
+   linear-gradient(0deg, var(--ink) 2%, rgba(8,8,10,.65) 26%, rgba(8,8,10,.12) 55%, rgba(8,8,10,.35) 100%)}
+.hero-inner{position:relative;z-index:3;width:100%;padding:0 var(--pad) clamp(48px,8vh,110px);max-width:var(--maxw);margin-inline:auto}
+.hero-eyebrow{margin-bottom:22px}
+.h1{font-size:clamp(46px,12vw,150px);line-height:.98;letter-spacing:normal;font-weight:900}
+.h1 .ln{display:block;overflow:hidden}
+.h1 .ln > span{display:inline-block;will-change:transform}
+.h1 .ember{color:var(--ember)}
+.h1 .stroke{color:transparent;-webkit-text-stroke:2px var(--lime)}
+.hero-sub{max-width:560px;margin-top:26px;font-size:clamp(16px,2.2vw,20px);color:#d9d3c8;line-height:1.9}
+.hero-tag{display:inline-flex;align-items:center;gap:10px;margin-top:18px;font-family:'Cairo',sans-serif;font-weight:700;
+  background:rgba(201,242,74,.12);color:var(--lime);border:1px solid rgba(201,242,74,.35);padding:8px 18px;border-radius:100px;font-size:16px}
+.hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 28px;border-radius:100px;font-weight:700;font-size:16.5px;font-family:'Tajawal',sans-serif;cursor:pointer;border:1px solid transparent;transition:transform .3s var(--ease),background .3s,color .3s,box-shadow .3s}
+.btn .ar{transition:transform .3s var(--ease)}
+.btn:hover .ar{transform:translateX(-5px)}
+.btn-primary{background:var(--ember);color:#140a04;box-shadow:0 12px 34px rgba(255,90,31,.34)}
+.btn-primary:hover{box-shadow:0 16px 44px rgba(255,90,31,.5)}
+.btn-ghost{background:rgba(255,255,255,.05);color:var(--paper);border-color:var(--line2);backdrop-filter:blur(6px)}
+.btn-ghost:hover{background:rgba(255,255,255,.12)}
+.btn-wa{background:#25d366;color:#04240f;box-shadow:0 12px 34px rgba(37,211,102,.3)}
+.hero-scroll{position:absolute;z-index:3;inset-block-end:20px;inset-inline-start:50%;transform:translateX(50%);
+  font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.3em;color:var(--muted);direction:ltr;display:flex;flex-direction:column;align-items:center;gap:8px}
+.hero-scroll i{width:1px;height:40px;background:linear-gradient(var(--lime),transparent);display:block}
+
+/* ---------- marquee ---------- */
+.marq{border-block:1px solid var(--line);background:var(--ink2);overflow:hidden;padding-block:16px}
+.marq .row{display:flex;gap:40px;white-space:nowrap;width:max-content;animation:marq 26s linear infinite}
+.marq b{font-family:'Cairo',sans-serif;font-weight:900;font-size:clamp(18px,2.6vw,28px);color:#2a2a30;letter-spacing:normal}
+.marq b.on{color:var(--paper)}
+.marq .s{color:var(--ember);align-self:center}
+@keyframes marq{to{transform:translateX(50%)}}
+
+/* ---------- intro / rating ---------- */
+.intro{padding:clamp(70px,11vh,150px) 0}
+.intro-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(30px,6vw,80px);align-items:center}
+.intro h2{font-size:clamp(28px,4.4vw,52px);line-height:1.28;letter-spacing:normal}
+.intro h2 .hl{color:var(--ember)}
+.intro p{margin-top:22px;color:var(--muted);font-size:18px;max-width:52ch}
+.rating{border:1px solid var(--line);background:linear-gradient(180deg,var(--card),var(--ink2));border-radius:var(--r);padding:34px}
+.rating .score{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:72px;line-height:1;color:var(--paper);direction:ltr}
+.rating .stars{color:var(--ember);font-size:22px;letter-spacing:4px;margin-top:6px}
+.rating .lbl{color:var(--muted);margin-top:12px;font-size:15px}
+.rating .src{margin-top:16px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted2);font-size:13px;letter-spacing:.02em}
+
+/* ---------- menu ---------- */
+.menu{padding:clamp(30px,4vh,60px) 0 clamp(70px,11vh,150px)}
+.menu-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:40px}
+.menu-head p{color:var(--muted);max-width:40ch;margin-top:14px}
+.cat{margin-top:52px}
+.cat-t{display:flex;align-items:baseline;gap:16px;padding-bottom:18px;margin-bottom:26px;border-bottom:1px solid var(--line)}
+.cat-t h3{font-size:clamp(22px,3.4vw,34px);letter-spacing:normal}
+.cat-t .lat{font-family:'Space Grotesk',sans-serif;color:var(--muted2);font-size:14px;letter-spacing:.24em;direction:ltr;text-transform:uppercase}
+.items{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.item{position:relative;display:flex;align-items:center;gap:18px;padding:20px 22px;border:1px solid var(--line);border-radius:16px;background:var(--card);overflow:hidden;transition:transform .4s var(--ease),border-color .4s,background .4s}
+.item::before{content:"";position:absolute;inset-block-start:0;inset-inline:0;height:2px;background:linear-gradient(90deg,var(--ember),var(--lime));transform:scaleX(0);transform-origin:right;transition:transform .45s var(--ease)}
+.item:hover{transform:translateY(-4px);border-color:var(--line2);background:var(--card2)}
+.item:hover::before{transform:scaleX(1)}
+.item .thumb{width:66px;height:66px;flex:0 0 auto;border-radius:12px;object-fit:cover;border:1px solid var(--line)}
+.item .body{flex:1;min-width:0}
+.item .nm{font-family:'Cairo',sans-serif;font-weight:700;font-size:18px;letter-spacing:normal;line-height:1.5}
+.item .ds{color:var(--muted2);font-size:13.5px;line-height:1.6}
+.item .pr{flex:0 0 auto;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:19px;color:var(--lime);direction:ltr;display:flex;align-items:baseline;gap:5px}
+.item .pr .cur{font-family:'Tajawal',sans-serif;font-size:12px;color:var(--muted);font-weight:500}
+.item.feat{grid-column:span 2;background:linear-gradient(100deg,var(--card2),var(--card));border-color:rgba(255,90,31,.28)}
+.item.feat .nm{font-size:21px}
+.item .badge{position:absolute;inset-block-start:14px;inset-inline-start:14px;font-family:'Space Grotesk',sans-serif;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#140a04;background:var(--ember);padding:3px 9px;border-radius:100px;direction:ltr;font-weight:700}
+.drinks-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px}
+.drink{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:100px;padding:7px 14px 7px 7px;background:var(--card);font-size:14.5px}
+.drink img{width:34px;height:34px;border-radius:50%;object-fit:cover;border:1px solid var(--line)}
+.drink .p{font-family:'Space Grotesk',sans-serif;color:var(--lime);margin-inline-start:4px;direction:ltr}
+
+/* ---------- signature pinned frames ---------- */
+.signature{position:relative;background:var(--ink)}
+.sig-stage{position:relative}
+.sig-frame{position:relative;height:82vh;overflow:hidden;display:flex;align-items:flex-end;background-size:cover;background-position:center}
+.sig-frame + .sig-frame{margin-top:4px}
+.sig-frame::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(6,6,8,.9) 4%,rgba(6,6,8,.25) 45%,rgba(6,6,8,.55) 100%)}
+.sig-cap{position:relative;z-index:2;padding:0 var(--pad) clamp(40px,7vh,90px);max-width:var(--maxw);margin-inline:auto;width:100%}
+.sig-cap .idx{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:14px;letter-spacing:.3em;color:var(--lime);direction:ltr}
+.sig-cap h3{font-size:clamp(34px,7vw,86px);line-height:1.05;letter-spacing:normal;margin-top:10px}
+.sig-cap .meta{display:flex;align-items:center;gap:18px;margin-top:16px;flex-wrap:wrap}
+.sig-cap .price{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:28px;color:var(--ember);direction:ltr}
+.sig-cap p{color:#d9d3c8;max-width:46ch;font-size:17px}
+.signature.is-pinned{height:340vh}
+.signature.is-pinned .sig-stage{position:sticky;inset-block-start:0;height:100vh;overflow:hidden}
+.signature.is-pinned .sig-frame{position:absolute;inset:0;height:100%;margin:0;opacity:0}
+
+/* ---------- gallery parallax ---------- */
+.gallery{padding:clamp(70px,11vh,150px) 0}
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:44px}
+.gal-item{position:relative;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:var(--card)}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+.gal-item:hover img{transform:scale(1.06)}
+.gal-item.tall{grid-row:span 2}
+.gal-inner{overflow:hidden;height:100%;will-change:transform}
+
+/* ---------- location ---------- */
+.loc{padding:0 0 clamp(70px,11vh,150px)}
+.loc-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,48px);align-items:stretch}
+.loc-card{border:1px solid var(--line);border-radius:var(--r);background:linear-gradient(180deg,var(--card),var(--ink2));padding:clamp(28px,4vw,44px);display:flex;flex-direction:column}
+.loc-card h3{font-size:clamp(26px,4vw,44px);letter-spacing:normal;line-height:1.24}
+.loc-row{display:flex;gap:14px;align-items:flex-start;padding-block:16px;border-bottom:1px solid var(--line)}
+.loc-row .ic{width:42px;height:42px;flex:0 0 auto;border-radius:12px;display:grid;place-items:center;background:rgba(255,90,31,.12);color:var(--ember);border:1px solid rgba(255,90,31,.25)}
+.loc-row .k{color:var(--muted2);font-size:13px}
+.loc-row .v{font-weight:700;font-size:17px}
+.loc-row .v a{color:var(--lime)}
+.map-wrap{position:relative;border-radius:var(--r);overflow:hidden;border:1px solid var(--line);min-height:360px}
+.map-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(.35) contrast(1.05) brightness(.82)}
+.map-open{position:absolute;z-index:2;inset-block-end:14px;inset-inline-start:14px;background:rgba(8,8,10,.82);backdrop-filter:blur(8px);border:1px solid var(--line2);border-radius:100px;padding:10px 18px;font-weight:700;font-size:14px;color:var(--paper)}
+
+/* ---------- order ---------- */
+.order{padding:clamp(70px,11vh,150px) 0;background:
+  radial-gradient(120% 100% at 80% 0%, rgba(255,90,31,.14), transparent 55%),
+  radial-gradient(90% 90% at 10% 100%, rgba(201,242,74,.08), transparent 55%), var(--ink2);
+  border-block:1px solid var(--line)}
+.order-box{text-align:center;max-width:760px;margin-inline:auto}
+.order-box h2{font-size:clamp(32px,6vw,68px);line-height:1.14;letter-spacing:normal}
+.order-box h2 .ember{color:var(--ember)}
+.order-box p{color:var(--muted);margin-top:20px;font-size:18px}
+.order-cta{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin-top:38px}
+.order-cta .btn{font-size:17.5px;padding:18px 34px}
+.order-note{margin-top:26px;color:var(--muted2);font-size:14px}
+
+/* ---------- footer ---------- */
+footer{background:var(--ink);border-block-start:1px solid var(--line);padding:clamp(50px,8vh,90px) 0 40px}
+.foot-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:40px;align-items:start}
+.foot-brand .brand{font-size:28px}
+.foot-brand p{color:var(--muted);margin-top:16px;max-width:34ch;font-size:15px}
+.foot-col h4{font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted2);margin:0 0 16px;direction:ltr}
+.foot-col a,.foot-col span{display:block;color:#cdc7bc;padding-block:6px;font-size:15px}
+.foot-col a:hover{color:var(--lime)}
+.foot-bottom{margin-top:48px;padding-top:24px;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;color:var(--muted2);font-size:13.5px}
+.foot-bottom .credit a{color:var(--lime);font-weight:700}
+
+/* ---------- reveal ---------- */
+.rv{opacity:0;transform:translateY(38px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.rv.d1{transition-delay:.09s}.rv.d2{transition-delay:.18s}.rv.d3{transition-delay:.27s}.rv.d4{transition-delay:.36s}
+
+/* ---------- responsive ---------- */
+@media (max-width:1000px){
+  .navlinks,.nav-cta.desk{display:none}
+  .burger{display:flex}
+  .intro-grid{grid-template-columns:1fr;gap:36px}
+  .gal-grid{grid-template-columns:repeat(2,1fr)}
+  .loc-grid{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr 1fr;gap:32px}
+  .foot-brand{grid-column:1/-1}
+}
+@media (max-width:620px){
+  body{font-size:16px}
+  .items{grid-template-columns:1fr}
+  .item.feat{grid-column:auto}
+  .gal-grid{grid-template-columns:1fr 1fr}
+  .item .thumb{width:56px;height:56px}
+  .hero-cta{gap:10px}
+  .btn{padding:14px 22px;font-size:15.5px}
+  .foot-grid{grid-template-columns:1fr}
+  .rating .score{font-size:60px}
+}
+
+/* ---------- reduced motion ---------- */
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important}
+  .rv{opacity:1 !important;transform:none !important}
+  .marq .row{animation:none}
+  .hero-scroll{display:none}
+  .h1 .ln > span{transform:none !important}
+  .signature.is-pinned{height:auto}
+  .signature.is-pinned .sig-stage{position:relative;height:auto}
+  .signature.is-pinned .sig-frame{position:relative;inset:auto;height:72vh;opacity:1 !important;margin-top:4px}
+}
+</style>
+</head>
+<body>
+
+<div class="grain" aria-hidden="true"></div>
+<div id="prog" aria-hidden="true"></div>
+
+<!-- preloader -->
+<div id="pre" aria-hidden="true">
+  <div class="plogo"><span>T</span><span>A</span><span>C</span><span>O</span><span>N</span><span>A</span></div>
+  <div class="pbar"><i></i></div>
+  <div class="ptag">أسرررع شي · ظهرة لبن</div>
+</div>
+
+<!-- nav -->
+<nav class="nav" id="nav">
+  <a href="#top" class="brand" aria-label="تاكونا الرئيسية">
+    <span class="dot"></span>تاكونا<span class="lat">TACONA</span>
+  </a>
+  <div class="navlinks">
+    <a href="#menu">القائمة</a>
+    <a href="#signature">أطباقنا</a>
+    <a href="#gallery">المعرض</a>
+    <a href="#location">الموقع</a>
+  </div>
+  <a href="#order" class="nav-cta desk" data-wa><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.9c0 1.76.46 3.48 1.34 5L2 22l5.25-1.38c1.47.8 3.12 1.22 4.79 1.22 5.46 0 9.9-4.45 9.9-9.9C21.94 6.45 17.5 2 12.04 2Zm0 18.14c-1.5 0-2.97-.4-4.25-1.16l-.3-.18-3.12.82.83-3.04-.2-.31a8.13 8.13 0 0 1-1.25-4.31c0-4.52 3.68-8.2 8.2-8.2 4.53 0 8.2 3.68 8.2 8.2 0 4.53-3.67 8.2-8.2 8.2Zm4.5-6.14c-.25-.12-1.46-.72-1.68-.8-.23-.09-.39-.13-.56.12-.16.25-.64.8-.79.97-.14.16-.29.18-.54.06-.25-.12-1.04-.38-1.98-1.22-.73-.65-1.23-1.46-1.37-1.71-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.16.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.42h-.48c-.16 0-.42.06-.64.31-.22.25-.84.82-.84 2 0 1.18.86 2.32.98 2.48.12.16 1.69 2.58 4.1 3.62.57.24 1.02.39 1.37.5.57.18 1.1.16 1.51.1.46-.07 1.46-.6 1.66-1.18.2-.57.2-1.06.14-1.16-.06-.11-.22-.17-.47-.29Z"/></svg>اطلب الآن</a>
+  <button class="burger" id="burger" aria-label="فتح القائمة" aria-expanded="false"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- mobile menu (off-screen closed) -->
+<div class="scrim" id="scrim"></div>
+<aside class="mob" id="mob" aria-hidden="true">
+  <a href="#menu"><span class="num">01</span>القائمة</a>
+  <a href="#signature"><span class="num">02</span>أطباقنا</a>
+  <a href="#gallery"><span class="num">03</span>المعرض</a>
+  <a href="#location"><span class="num">04</span>الموقع</a>
+  <a href="#order" class="m-cta" data-wa>اطلب عبر واتساب</a>
+  <div class="m-info">شارع الطائف، ظهرة لبن<br>الرياض 13782<br><span dir="ltr">0532 555 012</span></div>
+</aside>
+
+<main id="top">
+
+<!-- hero -->
+<section class="hero" id="hero">
+  <canvas id="heroGl" aria-hidden="true"></canvas>
+  <img id="heroImg" src="assets/img/p07.jpg" alt="بوريتو تاكونا مشوي على لوح خشبي بإضاءة دافئة">
+  <div class="hero-inner">
+    <div class="hero-eyebrow eyebrow">TACONA · Riyadh</div>
+    <h1 class="h1" aria-label="تاكوس تُشعل الليل">
+      <span class="ln"><span>تاكوس</span></span>
+      <span class="ln"><span class="ember">تُشعل الليل</span></span>
+    </h1>
+    <p class="hero-sub">مطبخ مكسيكي أمريكي في قلب ظهرة لبن. تاكو وبوريتو وبولات تُحضَّر لحظة طلبك، بنكهة جريئة وسرعة تليق بجوعك.</p>
+    <div><span class="hero-tag">«أسرررع شي»</span></div>
+    <div class="hero-cta">
+      <a href="#order" class="btn btn-primary" data-magnetic data-wa>اطلب عبر واتساب<span class="ar" aria-hidden="true">←</span></a>
+      <a href="#menu" class="btn btn-ghost" data-magnetic>تصفّح القائمة</a>
+    </div>
+  </div>
+  <div class="hero-scroll" aria-hidden="true">SCROLL<i></i></div>
+</section>
+
+<!-- marquee -->
+<div class="marq" aria-hidden="true">
+  <div class="row">
+    <b class="on">بيريا تاكونا</b><span class="s">✦</span><b>بوريتو مشوي</b><span class="s">✦</span><b class="on">تاكو روبيان</b><span class="s">✦</span><b>فييستا بوكس</b><span class="s">✦</span><b class="on">دجاج مانجو</b><span class="s">✦</span><b>بطاطس بيريا</b><span class="s">✦</span>
+    <b class="on">بيريا تاكونا</b><span class="s">✦</span><b>بوريتو مشوي</b><span class="s">✦</span><b class="on">تاكو روبيان</b><span class="s">✦</span><b>فييستا بوكس</b><span class="s">✦</span><b class="on">دجاج مانجو</b><span class="s">✦</span><b>بطاطس بيريا</b><span class="s">✦</span>
+  </div>
+</div>
+
+<!-- intro + rating -->
+<section class="intro wrap">
+  <div class="intro-grid">
+    <div>
+      <div class="eyebrow rv" style="margin-bottom:20px">Since the first bite</div>
+      <h2 class="rv d1">نار الشواء، توابل مكسيكية، وخبز <span class="hl">تورتيا طازج</span> يُحضَّر أمامك.</h2>
+      <p class="rv d2">في تاكونا نؤمن أن الطعم الحقيقي يبدأ من مكوّن طازج ونار عالية. من بيريا اللحم الغنية إلى الروبيان المتبّل والبولات المشبعة بالبروتين، كل طبق مصمّم ليكون سريعاً بلا أي تنازل عن النكهة.</p>
+    </div>
+    <div class="rating rv d2">
+      <div class="score en" data-count="4.8">4.8</div>
+      <div class="stars" aria-hidden="true">★★★★★</div>
+      <div class="lbl">تقييم زوّارنا على خرائط جوجل</div>
+      <div class="src">تقييم موثّق · شارع الطائف، ظهرة لبن، الرياض</div>
+    </div>
+  </div>
+</section>
+
+<!-- menu -->
+<section class="menu wrap" id="menu">
+  <div class="menu-head">
+    <div>
+      <div class="eyebrow rv">The Menu</div>
+      <h2 class="sec-h rv d1" style="margin-top:16px">القائمة</h2>
+      <p class="rv d2">أسعار بالريال السعودي. كل صنف يُحضَّر عند الطلب.</p>
+    </div>
+    <a href="#order" class="btn btn-ghost rv d2" data-magnetic data-wa style="align-self:center">اطلب أي صنف<span class="ar" aria-hidden="true">←</span></a>
+  </div>
+
+  <!-- Tacos & mains -->
+  <div class="cat">
+    <div class="cat-t rv"><h3>تاكو وأطباق رئيسية</h3><span class="lat">Tacos &amp; Mains</span></div>
+    <div class="items">
+      <div class="item feat rv">
+        <span class="badge">Signature</span>
+        <img class="thumb" src="assets/img/p02.jpg" alt="بيريا تاكونا مع البطاطس" loading="lazy">
+        <div class="body"><div class="nm">بيريا تاكونا</div><div class="ds">لحم بيريا مطهو ببطء، جبن ذائب، مع مرق للغمس</div></div>
+        <div class="pr">39<span class="cur">ر.س</span></div>
+      </div>
+      <div class="item rv">
+        <img class="thumb" src="assets/img/p04.jpg" alt="تاكو دجاج مانجو" loading="lazy">
+        <div class="body"><div class="nm">تاكو دجاج مانجو</div><div class="ds">دجاج مشوي وصلصة مانجو حارّة</div></div>
+        <div class="pr">32<span class="cur">ر.س</span></div>
+      </div>
+      <div class="item rv d1">
+        <img class="thumb" src="assets/img/p06.jpg" alt="تاكو روبيان" loading="lazy">
+        <div class="body"><div class="nm">تاكو روبيان</div><div class="ds">روبيان متبّل مقرمش مع سلطة طازجة</div></div>
+        <div class="pr">35<span class="cur">ر.س</span></div>
+      </div>
+      <div class="item rv d1">
+        <img class="thumb" src="assets/img/p05.jpg" alt="أربع تاكو" loading="lazy">
+        <div class="body"><div class="nm">٤ تاكو</div><div class="ds">تشكيلة أربع قطع، اختيارك من الحشوات</div></div>
+        <div class="pr">55<span class="cur">ر.س</span></div>
+      </div>
+      <div class="item rv d2">
+        <img class="thumb" src="assets/img/p03.jpg" alt="تاكو دجاج مشوي" loading="lazy">
+        <div class="body"><div class="nm">تاكو دجاج مشوي</div><div class="ds">دجاج مشوي على الفحم مع صلصة البيت</div></div>
+        <div class="pr">32<span class="cur">ر.س</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Burritos -->
+  <div class="cat">
+    <div class="cat-t rv"><h3>بوريتو وبولات</h3><span class="lat">Burritos &amp; Bowls</span></div>
+    <div class="items">
+      <div class="item rv">
+        <img class="thumb" src="assets/img/p07.jpg" alt="بوريتو دجاج مشوي" loading="lazy">
+        <div class="body"><div class="nm">بوريتو دجاج مشوي</div><div class="ds">تورتيا محمّصة، أرز، فاصوليا ودجاج مشوي</div></div>
+        <div class="pr">32<span class="cur">ر.س</span></div>
+      </div>
+      <div class="item rv d1">
+        <img class="thumb" src="assets/img/p08.jpg" alt="بوريتو لحم مكسيكي مشوي" loading="lazy">
+        <div class="body"><div class="nm">بوريتو لحم مكسيكي مشوي</div><div class="ds">لحم متبّل بالطريقة المكسيكية وجبن ذائب</div></div>
+        <div class="pr">34<span class="cur">ر.س</span></div>
+      </div>
+      <div class="item rv d1">
+        <img class="thumb" src="assets/img/p09.jpg" alt="بيف بول بوريتو" loading="lazy">
+        <div class="body"><div class="nm">بيف بول بوريتو</div><div class="ds">بول لحم بقري، ٤٠غ بروتين، أرز وغواكامولي</div></div>
+        <div class="pr">36<span class="cur">ر.س</span></div>
+      </div>
+      <div class="item rv d2">
+        <img class="thumb" src="assets/img/p10.jpg" alt="تشكن بول بوريتو" loading="lazy">
+        <div class="body"><div class="nm">تشكن بول بوريتو</div><div class="ds">بول دجاج مشوي، ٤٨غ بروتين، خضار وصلصة</div></div>
+        <div class="pr">34<span class="cur">ر.س</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Combos + Sides -->
+  <div class="cat">
+    <div class="cat-t rv"><h3>كومبو وجوانب</h3><span class="lat">Combos &amp; Sides</span></div>
+    <div class="items">
+      <div class="item feat rv">
+        <span class="badge">Sharing</span>
+        <img class="thumb" src="assets/img/p11.jpg" alt="فييستا بوكس" loading="lazy">
+        <div class="body"><div class="nm">فييستا بوكس · Fiesta Box</div><div class="ds">وجبة مشاركة كاملة مع ناتشوز ومشروب</div></div>
+        <div class="pr">126<span class="cur">ر.س</span></div>
+      </div>
+      <div class="item rv">
+        <img class="thumb" src="assets/img/p13.jpg" alt="بطاطس بيريا مكسيكي" loading="lazy">
+        <div class="body"><div class="nm">بطاطس بيريا مكسيكي</div><div class="ds">بطاطس مغطّاة بلحم البيريا والجبن</div></div>
+        <div class="pr">24<span class="cur">ر.س</span></div>
+      </div>
+      <div class="item rv d1">
+        <img class="thumb" src="assets/img/p14.jpg" alt="سلطة مكسيكي" loading="lazy">
+        <div class="body"><div class="nm">سلطة مكسيكي</div><div class="ds">خضار طازجة، ذرة، وصلصة الليمون</div></div>
+        <div class="pr">33<span class="cur">ر.س</span></div>
+      </div>
+      <div class="item rv d1">
+        <img class="thumb" src="assets/img/p13.jpg" alt="بطاطس مقلية" loading="lazy">
+        <div class="body"><div class="nm">بطاطس مقلية</div><div class="ds">مقرمشة ذهبية</div></div>
+        <div class="pr">9.5<span class="cur">ر.س</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Drinks -->
+  <div class="cat">
+    <div class="cat-t rv"><h3>مشروبات</h3><span class="lat">Drinks</span></div>
+    <div class="drinks-row rv">
+      <span class="drink"><img src="assets/img/p15.jpg" alt="بيبسي" loading="lazy">بيبسي<span class="p">5</span></span>
+      <span class="drink"><img src="assets/img/p16.jpg" alt="ميرندا" loading="lazy">ميرندا<span class="p">5</span></span>
+      <span class="drink"><img src="assets/img/p17.jpg" alt="سفن أب" loading="lazy">سفن أب<span class="p">5</span></span>
+      <span class="drink"><img src="assets/img/p18.jpg" alt="دايت بيبسي" loading="lazy">دايت بيبسي<span class="p">5</span></span>
+      <span class="drink"><img src="assets/img/p19.jpg" alt="ماء" loading="lazy">ماء<span class="p">2</span></span>
+    </div>
+  </div>
+</section>
+
+<!-- signature pinned frames -->
+<section class="signature" id="signature">
+  <div class="sig-stage">
+    <figure class="sig-frame" style="background-image:url(assets/img/p02.jpg)">
+      <div class="sig-cap">
+        <div class="idx">01 / بيريا</div>
+        <h3>بيريا تاكونا</h3>
+        <div class="meta"><span class="price">39 <span style="font-size:15px;color:var(--muted)">ر.س</span></span><p>لحم مطهو ببطء ومرق للغمس، مع بطاطس مكسيكية مقرمشة.</p></div>
+      </div>
+    </figure>
+    <figure class="sig-frame" style="background-image:url(assets/img/p06.jpg)">
+      <div class="sig-cap">
+        <div class="idx">02 / روبيان</div>
+        <h3>تاكو روبيان</h3>
+        <div class="meta"><span class="price">35 <span style="font-size:15px;color:var(--muted)">ر.س</span></span><p>روبيان متبّل فوق تورتيا مقرمشة وصلصات البيت الطازجة.</p></div>
+      </div>
+    </figure>
+    <figure class="sig-frame" style="background-image:url(assets/img/p11.jpg)">
+      <div class="sig-cap">
+        <div class="idx">03 / مشاركة</div>
+        <h3>فييستا بوكس</h3>
+        <div class="meta"><span class="price">126 <span style="font-size:15px;color:var(--muted)">ر.س</span></span><p>وليمة كاملة تكفي المجموعة، ناتشوز ومشروب وكل ما تشتهيه الفيستا.</p></div>
+      </div>
+    </figure>
+  </div>
+</section>
+
+<!-- gallery -->
+<section class="gallery wrap" id="gallery">
+  <div class="eyebrow rv">Gallery</div>
+  <h2 class="sec-h rv d1" style="margin-top:16px">لقطات من المطبخ</h2>
+  <div class="gal-grid">
+    <div class="gal-item tall rv" data-par="0.12"><div class="gal-inner"><img src="assets/img/p07.jpg" alt="بوريتو مشوي" loading="lazy"></div></div>
+    <div class="gal-item rv d1" data-par="-0.08"><div class="gal-inner"><img src="assets/img/p04.jpg" alt="تاكو دجاج" loading="lazy"></div></div>
+    <div class="gal-item rv d2" data-par="0.16"><div class="gal-inner"><img src="assets/img/p09.jpg" alt="بول لحم" loading="lazy"></div></div>
+    <div class="gal-item tall rv d1" data-par="-0.1"><div class="gal-inner"><img src="assets/img/p06.jpg" alt="تاكو روبيان" loading="lazy"></div></div>
+    <div class="gal-item rv d2" data-par="0.1"><div class="gal-inner"><img src="assets/img/p03.jpg" alt="تاكو وبطاطس" loading="lazy"></div></div>
+    <div class="gal-item rv d3" data-par="-0.12"><div class="gal-inner"><img src="assets/img/p14.jpg" alt="سلطة مكسيكي" loading="lazy"></div></div>
+    <div class="gal-item rv d1" data-par="0.14"><div class="gal-inner"><img src="assets/img/p10.jpg" alt="بول دجاج" loading="lazy"></div></div>
+    <div class="gal-item rv d2" data-par="-0.06"><div class="gal-inner"><img src="assets/img/p08.jpg" alt="بوريتو لحم" loading="lazy"></div></div>
+  </div>
+</section>
+
+<!-- location -->
+<section class="loc wrap" id="location">
+  <div class="loc-grid">
+    <div class="loc-card rv">
+      <div class="eyebrow" style="margin-bottom:18px">Find us</div>
+      <h3>ظهرة لبن، الرياض</h3>
+      <div class="loc-row">
+        <span class="ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
+        <div><div class="k">العنوان</div><div class="v">شارع الطائف، ظهرة لبن، الرياض 13782</div></div>
+      </div>
+      <div class="loc-row">
+        <span class="ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg></span>
+        <div><div class="k">الهاتف والواتساب</div><div class="v"><a href="tel:0532555012" dir="ltr">0532 555 012</a></div></div>
+      </div>
+      <div class="loc-row" style="border-bottom:none">
+        <span class="ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+        <div><div class="k">أوقات العمل</div><div class="v">يومياً · حسب أوقات دوام الفرع</div></div>
+      </div>
+      <a href="https://www.google.com/maps/search/?api=1&query=TACONA+%D8%B8%D9%87%D8%B1%D8%A9+%D9%84%D8%A8%D9%86+%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6" target="_blank" rel="noopener" class="btn btn-primary" data-magnetic style="margin-top:26px;align-self:flex-start">افتح في خرائط جوجل<span class="ar" aria-hidden="true">←</span></a>
+    </div>
+    <div class="map-wrap rv d1">
+      <iframe title="موقع تاكونا في ظهرة لبن" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=46.560%2C24.592%2C46.612%2C24.632&amp;layer=mapnik&amp;marker=24.612%2C46.586"></iframe>
+      <a class="map-open" href="https://www.google.com/maps/search/?api=1&query=TACONA+%D8%B8%D9%87%D8%B1%D8%A9+%D9%84%D8%A8%D9%86+%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6" target="_blank" rel="noopener">عرض الاتجاهات</a>
+    </div>
+  </div>
+</section>
+
+<!-- order -->
+<section class="order" id="order">
+  <div class="wrap order-box">
+    <div class="eyebrow rv" style="justify-content:center">Order now</div>
+    <h2 class="rv d1" style="margin-top:16px">جوعان؟ <span class="ember">أسرررع شي</span> توصلك.</h2>
+    <p class="rv d2">اطلب مباشرة عبر واتساب لأسرع خدمة، أو استلم توصيلك من هنقرستيشن.</p>
+    <div class="order-cta rv d2">
+      <a class="btn btn-wa" data-magnetic data-wa><svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.9c0 1.76.46 3.48 1.34 5L2 22l5.25-1.38c1.47.8 3.12 1.22 4.79 1.22 5.46 0 9.9-4.45 9.9-9.9C21.94 6.45 17.5 2 12.04 2Zm4.5 11.86c-.25-.12-1.46-.72-1.68-.8-.23-.09-.39-.13-.56.12-.16.25-.64.8-.79.97-.14.16-.29.18-.54.06-.25-.12-1.04-.38-1.98-1.22-.73-.65-1.23-1.46-1.37-1.71-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.16.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.42h-.48c-.16 0-.42.06-.64.31-.22.25-.84.82-.84 2 0 1.18.86 2.32.98 2.48.12.16 1.69 2.58 4.1 3.62.57.24 1.02.39 1.37.5.57.18 1.1.16 1.51.1.46-.07 1.46-.6 1.66-1.18.2-.57.2-1.06.14-1.16-.06-.11-.22-.17-.47-.29Z"/></svg>اطلب عبر واتساب<span class="ar" aria-hidden="true">←</span></a>
+      <a class="btn btn-primary" data-magnetic href="https://hungerstation.com/sa-ar/restaurant/riyadh/laban/182943" target="_blank" rel="noopener">توصيل عبر هنقرستيشن<span class="ar" aria-hidden="true">←</span></a>
+    </div>
+    <div class="order-note rv d3">أسرع خدمة · شارع الطائف، ظهرة لبن، الرياض 13782</div>
+  </div>
+</section>
+
+</main>
+
+<!-- footer -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <span class="brand"><span class="dot"></span>تاكونا<span class="lat">TACONA</span></span>
+        <p>مطبخ مكسيكي أمريكي في ظهرة لبن بالرياض. تاكو وبوريتو وبولات طازجة، بنكهة جريئة وبأسرع وقت.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Menu</h4>
+        <a href="#menu">القائمة الكاملة</a>
+        <a href="#signature">أطباقنا المميّزة</a>
+        <a href="#gallery">المعرض</a>
+      </div>
+      <div class="foot-col">
+        <h4>Order</h4>
+        <a data-wa href="https://wa.me/966532555012">واتساب · <span dir="ltr">0532 555 012</span></a>
+        <a href="https://hungerstation.com/sa-ar/restaurant/riyadh/laban/182943" target="_blank" rel="noopener">هنقرستيشن</a>
+        <a href="#location">شارع الطائف، ظهرة لبن</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span class="en">2026</span> تاكونا · جميع الحقوق محفوظة</span>
+      <span class="credit">صُمّم بواسطة <a href="https://wa.me/966505989304" target="_blank" rel="noopener">Ali</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ============ WhatsApp deep-links (progressive) ============ */
+(function(){
+  try{
+    var base="https://wa.me/966532555012";
+    var msg="السلام عليكم تاكونا، أرغب بالطلب:\n";
+    var url=base+"?text="+encodeURIComponent(msg);
+    document.querySelectorAll("[data-wa]").forEach(function(a){ a.setAttribute("href",url); });
+  }catch(e){}
+})();
+
+/* ============ Preloader ============ */
+(function(){
+  var pre=document.getElementById("pre");
+  var bar=pre&&pre.querySelector(".pbar i");
+  var letters=pre?pre.querySelectorAll(".plogo span"):[];
+  var reduce=window.matchMedia("(prefers-reduced-motion:reduce)").matches;
+  try{
+    letters.forEach(function(s,i){
+      s.animate([{transform:"translateY(110%)",opacity:0},{transform:"translateY(0)",opacity:1}],
+        {duration:560,delay:120+i*70,easing:"cubic-bezier(.22,1,.36,1)",fill:"forwards"});
+    });
+    if(bar) bar.animate([{width:"0%"},{width:"100%"}],{duration:1100,delay:220,easing:"ease",fill:"forwards"});
+  }catch(e){ if(bar) bar.style.width="100%"; }
+  function done(){ document.body.classList.add("loaded"); setTimeout(init,60); }
+  var t=setTimeout(done, reduce?350:1400);
+  window.addEventListener("load",function(){ clearTimeout(t); setTimeout(done, reduce?200:1250); });
+})();
+
+/* ============ Main init ============ */
+function init(){
+  var reduce=window.matchMedia("(prefers-reduced-motion:reduce)").matches;
+  var finePointer=window.matchMedia("(pointer:fine)").matches;
+
+  /* ---- WebGL smoke reveal hero (raw WebGL, graceful fallback) ---- */
+  (function(){
+    if(reduce) return;
+    var hero=document.getElementById("hero");
+    var canvas=document.getElementById("heroGl");
+    var img=document.getElementById("heroImg");
+    if(!canvas||!img) return;
+    var gl;
+    try{ gl=canvas.getContext("webgl")||canvas.getContext("experimental-webgl"); }catch(e){}
+    if(!gl) return; /* fallback img stays visible */
+
+    var vs="attribute vec2 aPos;varying vec2 vUv;void main(){vUv=aPos*0.5+0.5;gl_Position=vec4(aPos,0.0,1.0);}";
+    var fs=[
+    "precision highp float;",
+    "varying vec2 vUv;",
+    "uniform sampler2D uTex;uniform vec2 uRes;uniform vec2 uImg;uniform float uProg;uniform float uTime;",
+    "float hash(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}",
+    "float noise(vec2 p){vec2 i=floor(p);vec2 f=fract(p);float a=hash(i);float b=hash(i+vec2(1.0,0.0));float c=hash(i+vec2(0.0,1.0));float d=hash(i+vec2(1.0,1.0));vec2 u=f*f*(3.0-2.0*f);return mix(a,b,u.x)+(c-a)*u.y*(1.0-u.x)+(d-b)*u.x*u.y;}",
+    "float fbm(vec2 p){float v=0.0;float a=0.5;for(int i=0;i<5;i++){v+=a*noise(p);p*=2.0;a*=0.5;}return v;}",
+    "void main(){",
+    " float sImg=uImg.x/uImg.y;float sRes=uRes.x/uRes.y;vec2 uv=vUv;",
+    " if(sRes>sImg){uv.y=(uv.y-0.5)*(sImg/sRes)+0.5;}else{uv.x=(uv.x-0.5)*(sRes/sImg)+0.5;}",
+    " vec2 c=uv-0.5;uv=c*(1.0-0.035*sin(uTime*0.06))+0.5;uv.y+=0.006*sin(uTime*0.05);",
+    " float n=fbm(vUv*3.4+uTime*0.02);",
+    " float reveal=1.0-smoothstep(uProg-0.14,uProg+0.03,n);",
+    " vec3 col=texture2D(uTex,uv).rgb*0.94;",
+    " float band=(1.0-smoothstep(0.0,0.13,abs(n-uProg)))*(1.0-step(0.999,uProg))*reveal;",
+    " col=mix(col,vec3(1.0,0.36,0.11),band*0.55);",
+    " vec3 bg=vec3(0.031,0.031,0.039);",
+    " gl_FragColor=vec4(mix(bg,col,reveal),1.0);",
+    "}"].join("\n");
+
+    function sh(type,src){var s=gl.createShader(type);gl.shaderSource(s,src);gl.compileShader(s);
+      if(!gl.getShaderParameter(s,gl.COMPILE_STATUS)){return null;}return s;}
+    var v=sh(gl.VERTEX_SHADER,vs),f=sh(gl.FRAGMENT_SHADER,fs);
+    if(!v||!f) return;
+    var prog=gl.createProgram();gl.attachShader(prog,v);gl.attachShader(prog,f);gl.linkProgram(prog);
+    if(!gl.getProgramParameter(prog,gl.LINK_STATUS)) return;
+    gl.useProgram(prog);
+
+    var buf=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,buf);
+    gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,3,-1,-1,3]),gl.STATIC_DRAW);
+    var aPos=gl.getAttribLocation(prog,"aPos");gl.enableVertexAttribArray(aPos);
+    gl.vertexAttribPointer(aPos,2,gl.FLOAT,false,0,0);
+
+    var uRes=gl.getUniformLocation(prog,"uRes"),uImg=gl.getUniformLocation(prog,"uImg"),
+        uProg=gl.getUniformLocation(prog,"uProg"),uTime=gl.getUniformLocation(prog,"uTime");
+
+    var tex=gl.createTexture();
+    function uploadTex(){
+      gl.bindTexture(gl.TEXTURE_2D,tex);
+      gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL,true);
+      gl.texImage2D(gl.TEXTURE_2D,0,gl.RGB,gl.RGB,gl.UNSIGNED_BYTE,img);
+      gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);
+      gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);
+      gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);
+      gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.LINEAR);
+      gl.uniform2f(uImg,img.naturalWidth||1600,img.naturalHeight||1200);
+    }
+    var dpr=Math.min(window.devicePixelRatio||1,2);
+    function resize(){
+      var w=hero.clientWidth,h=hero.clientHeight;
+      canvas.width=w*dpr;canvas.height=h*dpr;canvas.style.width=w+"px";canvas.style.height=h+"px";
+      gl.viewport(0,0,canvas.width,canvas.height);gl.uniform2f(uRes,canvas.width,canvas.height);
+    }
+    var start=performance.now(),ready=false;
+    document.addEventListener("visibilitychange",function(){ if(document.visibilityState==="visible"&&ready){ start=performance.now(); } });
+    function frame(now){
+      var t=(now-start)/1000;
+      var prg=Math.min(1,t/1.9);
+      var e=1-Math.pow(1-prg,3);
+      gl.uniform1f(uProg,ready?e:0);
+      gl.uniform1f(uTime,t);
+      gl.drawArrays(gl.TRIANGLES,0,3);
+      requestAnimationFrame(frame);
+    }
+    function go(){ hero.classList.add("gl-on"); uploadTex(); resize(); ready=true; start=performance.now(); requestAnimationFrame(frame); }
+    if(img.complete && img.naturalWidth) go(); else img.addEventListener("load",go);
+    window.addEventListener("resize",resize,{passive:true});
+  })();
+
+  /* ---- Lenis smooth scroll ---- */
+  var lenis=null;
+  try{
+    if(!reduce && window.Lenis){
+      lenis=new Lenis({duration:1.1,easing:function(t){return Math.min(1,1.001-Math.pow(2,-10*t));},smoothWheel:true});
+      function raf(t){lenis.raf(t);requestAnimationFrame(raf);}requestAnimationFrame(raf);
+    }
+  }catch(e){}
+
+  /* ---- GSAP registrations ---- */
+  var GS=window.gsap, ST=window.ScrollTrigger, SPL=window.SplitText;
+  try{ if(GS&&ST) GS.registerPlugin(ST); if(GS&&SPL) GS.registerPlugin(SPL); }catch(e){}
+  try{ if(lenis&&ST){ lenis.on("scroll",ST.update); GS.ticker.add(function(t){lenis.raf(t*1000);}); GS.ticker.lagSmoothing(0);} }catch(e){}
+
+  /* ---- Hero headline (SplitText kinetic) ---- */
+  try{
+    var spans=document.querySelectorAll(".h1 .ln > span");
+    if(GS && !reduce){
+      GS.set(spans,{yPercent:110});
+      GS.to(spans,{yPercent:0,duration:1.05,ease:"power4.out",stagger:.12,delay:.15});
+      document.querySelectorAll(".hero-sub,.hero-tag,.hero-cta,.hero-eyebrow").forEach(function(el,i){
+        GS.from(el,{y:24,opacity:0,duration:.9,ease:"power3.out",delay:.5+i*.08});
+      });
+    }else{ spans.forEach(function(s){s.style.transform="none";}); }
+  }catch(e){ document.querySelectorAll(".h1 .ln > span").forEach(function(s){s.style.transform="none";}); }
+
+  /* ---- Scroll reveal (IO) ---- */
+  try{
+    var io=new IntersectionObserver(function(en){
+      en.forEach(function(x){ if(x.isIntersecting){ x.target.classList.add("in"); io.unobserve(x.target); } });
+    },{threshold:.12,rootMargin:"0px 0px -7% 0px"});
+    document.querySelectorAll(".rv").forEach(function(el){io.observe(el);});
+    setTimeout(function(){document.querySelectorAll(".rv").forEach(function(el){el.classList.add("in");});},2600);
+  }catch(e){ document.querySelectorAll(".rv").forEach(function(el){el.classList.add("in");}); }
+
+  /* ---- Count-up rating ---- */
+  try{
+    var sc=document.querySelector("[data-count]");
+    if(sc){
+      var target=parseFloat(sc.getAttribute("data-count"));
+      if(reduce){ sc.textContent=target.toFixed(1); }
+      else{
+        var seen=false;
+        var io2=new IntersectionObserver(function(en){
+          en.forEach(function(x){ if(x.isIntersecting&&!seen){ seen=true;
+            var s=performance.now();
+            (function tick(n){ var p=Math.min(1,(n-s)/1400); var e=1-Math.pow(1-p,3);
+              sc.textContent=(target*e).toFixed(1); if(p<1)requestAnimationFrame(tick); })(s);
+          }});
+        },{threshold:.4});
+        io2.observe(sc);
+        setTimeout(function(){sc.textContent=target.toFixed(1);},1800);
+      }
+    }
+  }catch(e){}
+
+  /* ---- Signature pinned cross-fade ---- */
+  try{
+    var sig=document.getElementById("signature");
+    var frames=sig?sig.querySelectorAll(".sig-frame"):[];
+    if(GS&&ST&&!reduce&&frames.length){
+      sig.classList.add("is-pinned");
+      GS.set(frames,{opacity:0,scale:1.08});
+      GS.set(frames[0],{opacity:1,scale:1.04});
+      var tl=GS.timeline({scrollTrigger:{trigger:sig,start:"top top",end:"bottom bottom",scrub:.8}});
+      for(var i=0;i<frames.length;i++){
+        GS.to(frames[i],{scale:1,ease:"none",scrollTrigger:{trigger:sig,start:"top top",end:"bottom bottom",scrub:.8}});
+        if(i>0){ tl.to(frames[i-1],{opacity:0,duration:.5},">").to(frames[i],{opacity:1,duration:.5},"<"); }
+      }
+    }
+  }catch(e){}
+
+  /* ---- Gallery parallax ---- */
+  try{
+    if(GS&&ST&&!reduce){
+      document.querySelectorAll(".gal-item[data-par] .gal-inner").forEach(function(inner){
+        var amt=parseFloat(inner.parentElement.getAttribute("data-par"))*120;
+        GS.fromTo(inner,{y:-amt},{y:amt,ease:"none",scrollTrigger:{trigger:inner.parentElement,start:"top bottom",end:"bottom top",scrub:true}});
+      });
+    }
+  }catch(e){}
+
+  /* ---- Nav scroll state + progress ---- */
+  var nav=document.getElementById("nav"),prog=document.getElementById("prog");
+  function onScroll(){
+    var y=window.scrollY||document.documentElement.scrollTop;
+    if(nav) nav.classList.toggle("scrolled",y>40);
+    if(prog){ var h=document.documentElement.scrollHeight-window.innerHeight;
+      prog.style.transform="scaleX("+(h>0?Math.min(1,y/h):0)+")"; }
+  }
+  window.addEventListener("scroll",onScroll,{passive:true});onScroll();
+
+  /* ---- Mobile menu ---- */
+  var burger=document.getElementById("burger"),mob=document.getElementById("mob"),scrim=document.getElementById("scrim");
+  function setMenu(open){
+    mob.classList.toggle("open",open);scrim.classList.toggle("show",open);
+    burger.setAttribute("aria-expanded",open?"true":"false");mob.setAttribute("aria-hidden",open?"false":"true");
+    document.body.style.overflow=open?"hidden":"";
+    if(lenis){ open?lenis.stop():lenis.start(); }
+  }
+  if(burger){ burger.addEventListener("click",function(){setMenu(!mob.classList.contains("open"));}); }
+  if(scrim){ scrim.addEventListener("click",function(){setMenu(false);}); }
+  mob&&mob.querySelectorAll("a").forEach(function(a){a.addEventListener("click",function(){setMenu(false);});});
+
+  /* ---- Smooth anchor scroll (Lenis-aware) ---- */
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener("click",function(ev){
+      var id=a.getAttribute("href");if(id.length<2)return;
+      var el=document.querySelector(id);if(!el)return;ev.preventDefault();
+      if(lenis) lenis.scrollTo(el,{offset:-70,duration:1.1});
+      else el.scrollIntoView({behavior:reduce?"auto":"smooth"});
+    });
+  });
+
+  /* ---- Magnetic buttons ---- */
+  if(finePointer&&!reduce){
+    document.querySelectorAll("[data-magnetic]").forEach(function(b){
+      b.addEventListener("mousemove",function(e){
+        var r=b.getBoundingClientRect();
+        var x=(e.clientX-r.left-r.width/2)*.28, y=(e.clientY-r.top-r.height/2)*.34;
+        b.style.transform="translate("+x+"px,"+y+"px)";
+      });
+      b.addEventListener("mouseleave",function(){b.style.transform="";});
+    });
+  }
+
+  try{ if(ST) ST.refresh(); }catch(e){}
+}
+</script>
+
+<!-- libraries (loaded after content; init guarded if any fail) -->
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js" defer></script>
+</body>
+</html>
